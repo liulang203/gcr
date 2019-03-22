@@ -1,0 +1,44 @@
+{
+    "inbound": {
+      "port": 15293,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "3702b152-6858-ef01-7814-c41f59b171d3",
+            "level": 1,
+            "alterId": 87
+          },
+          {
+            "id": "12ee68d3-dbf5-dc1c-1672-ed2aa8678f94",
+            "level": 1,
+            "alterId": 125
+          }
+        ]
+      }
+    },
+    "outbound": {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    "outboundDetour": [
+      {
+        "protocol": "blackhole",
+        "settings": {},
+        "tag": "blocked"
+      }
+    ],
+    "routing": {
+      "strategy": "rules",
+      "settings": {
+        "rules": [
+          {
+            "type": "field",
+            "ip": ["geoip:private"],
+            "outboundTag": "blocked"
+          }
+        ]
+      }
+    }
+  }
+  
